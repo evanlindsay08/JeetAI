@@ -41,4 +41,13 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('section').forEach((section) => {
         observer.observe(section);
     });
+
+    // Add image error handling
+    document.querySelectorAll('img').forEach(img => {
+        img.onerror = function() {
+            console.error('Failed to load image:', img.src);
+            // Optionally set a fallback image
+            // img.src = 'static/images/fallback.png';
+        };
+    });
 });
